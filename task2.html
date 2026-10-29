@@ -1,68 +1,193 @@
-
+```html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Online News Portal</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily News Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f2f2;
+            text-align: center;
+        }
+
+        header {
+            background: #123456;
+            color: white;
+            padding: 20px;
+        }
+
+        nav {
+            background: #222;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: #e63946;
+        }
+
+        .page {
+            display: none;
+            padding: 25px;
+            min-height: 300px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .featured, .card {
+            background: white;
+            padding: 20px;
+            margin: 15px auto;
+            max-width: 650px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px #ccc;
+        }
+
+        h2 {
+            color: #123456;
+        }
+
+        footer {
+            background: #123456;
+            color: white;
+            padding: 12px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                padding: 8px;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Daily News</h1>
+    <h1>📰 Daily News</h1>
     <p>Your World, Your News</p>
 </header>
 
 <nav>
-    <a href="#">Home</a>
-    <a href="#">National</a>
-    <a href="#">International</a>
-    <a href="#">Sports</a>
-    <a href="#">Technology</a>
-    <a href="#">Business</a>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('national')">National</a>
+    <a onclick="showPage('international')">International</a>
+    <a onclick="showPage('sports')">Sports</a>
+    <a onclick="showPage('technology')">Technology</a>
+    <a onclick="showPage('business')">Business</a>
 </nav>
 
-<section class="featured">
-    <h2>Featured News</h2>
-    <h3>Welcome to Daily News Portal</h3>
-    <p>Get the latest news and updates from around the world.</p>
-    <p>By News Desk</p>
-</section>
-
-<main>
-    <div class="card">
-        <h3>National News</h3>
-        <p>Latest updates from India.</p>
-        <small>By Ravi Kumar</small>
+<!-- Home Page -->
+<section id="home" class="page active">
+    <div class="featured">
+        <h2>Featured News</h2>
+        <h3>Welcome to Daily News Portal</h3>
+        <p>Get the latest news and updates from around the world.</p>
+        <p>By News Desk</p>
     </div>
 
+    <h2>Latest Headlines</h2>
+
     <div class="card">
-        <h3>International News</h3>
-        <p>Important news from across the world.</p>
-        <small>By Priya</small>
+        <h3>National News</h3>
+        <p>Read the latest updates from India.</p>
     </div>
 
     <div class="card">
         <h3>Sports News</h3>
-        <p>Cricket, football and sports updates.</p>
+        <p>Discover cricket, football and other sports updates.</p>
+    </div>
+
+    <div class="card">
+        <h3>Technology News</h3>
+        <p>Explore new inventions and technology trends.</p>
+    </div>
+</section>
+
+<!-- National Page -->
+<section id="national" class="page">
+    <h2>National News</h2>
+    <div class="card">
+        <h3>Latest News from India</h3>
+        <p>Read national headlines, government updates and important events.</p>
+        <small>By Ravi Kumar</small>
+    </div>
+</section>
+
+<!-- International Page -->
+<section id="international" class="page">
+    <h2>International News</h2>
+    <div class="card">
+        <h3>World News Updates</h3>
+        <p>Explore important events and developments from around the world.</p>
+        <small>By Priya</small>
+    </div>
+</section>
+
+<!-- Sports Page -->
+<section id="sports" class="page">
+    <h2>Sports News</h2>
+    <div class="card">
+        <h3>Latest Sports Updates</h3>
+        <p>Read cricket, football and other sports news.</p>
         <small>By Rahul</small>
     </div>
+</section>
 
+<!-- Technology Page -->
+<section id="technology" class="page">
+    <h2>Technology News</h2>
     <div class="card">
-        <h3>Technology</h3>
-        <p>New inventions and technology trends.</p>
+        <h3>Latest Technology Trends</h3>
+        <p>Discover artificial intelligence, gadgets, science and new inventions.</p>
         <small>By Anjali</small>
     </div>
+</section>
 
+<!-- Business Page -->
+<section id="business" class="page">
+    <h2>Business News</h2>
     <div class="card">
-        <h3>Business News</h3>
-        <p>Markets and business updates.</p>
+        <h3>Markets and Business Updates</h3>
+        <p>Explore business developments, market trends and the economy.</p>
         <small>By Kiran</small>
     </div>
-</main>
+</section>
 
 <footer>
     <p>&copy; 2026 Daily News Portal</p>
 </footer>
 
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll(".page");
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+        // Display only the clicked page
+        document.getElementById(pageId).classList.add("active");
+
+        // Scroll to the top
+        window.scrollTo(0, 0);
+    }
+</script>
+
 </body>
 </html>
+```
