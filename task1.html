@@ -1,113 +1,243 @@
 
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sweet Treats Bakery</title>
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #fff8f0;
+            text-align: center;
+        }
+
+        header {
+            background: #8b4513;
+            color: white;
+            padding: 15px;
+        }
+
+        nav {
+            margin-top: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 14px;
+            display: inline-block;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background: #d2691e;
+            border-radius: 5px;
+        }
+
+        .page {
+            display: none;
+            padding: 30px 15px;
+            min-height: 350px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .hero {
+            background: #ffe0b2;
+            padding: 70px 15px;
+        }
+
+        h2 {
+            color: #8b4513;
+        }
+
+        .btn {
+            background: #8b4513;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .product-container, .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .card {
+            background: white;
+            width: 220px;
+            padding: 12px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+
+        .card img, .gallery img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .price {
+            color: #b22222;
+            font-weight: bold;
+        }
+
+        .gallery img {
+            width: 250px;
+        }
+
+        .offers {
+            background: #ffe0b2;
+        }
+
+        footer {
+            background: #8b4513;
+            color: white;
+            padding: 15px;
+        }
+
+        @media (max-width: 600px) {
+            nav a {
+                padding: 8px;
+            }
+
+            .card {
+                width: 85%;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <!-- Navigation Bar -->
-    <header>
-        <h1>🍰 Sweet Treats</h1>
-        <nav>
-            <a href="#home">Home</a>
-            <a href="#products">Products</a>
-            <a href="#custom">Custom Cakes</a>
-            <a href="#offers">Offers</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+<header>
+    <h1>🍰 Sweet Treats</h1>
 
-    <!-- Home Section -->
-    <section id="home" class="hero">
+    <nav>
+        <a onclick="showPage('home')">Home</a>
+        <a onclick="showPage('products')">Products</a>
+        <a onclick="showPage('custom')">Custom Cakes</a>
+        <a onclick="showPage('offers')">Offers</a>
+        <a onclick="showPage('contact')">Contact</a>
+    </nav>
+</header>
+
+<!-- Home Page -->
+<section id="home" class="page active">
+    <div class="hero">
         <h2>Freshly Baked Happiness!</h2>
         <p>Delicious cakes, pastries and cookies made with love.</p>
-        <a href="#products" class="btn">Explore Our Bakery</a>
-    </section>
+        <button class="btn" onclick="showPage('products')">
+            Explore Our Bakery
+        </button>
+    </div>
+</section>
 
-    <!-- Products Section -->
-    <section id="products">
-        <h2>Our Delicious Products</h2>
+<!-- Products Page -->
+<section id="products" class="page">
+    <h2>Our Delicious Products</h2>
 
-        <div class="product-container">
+    <div class="product-container">
 
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500"
-                     alt="Chocolate birthday cake">
-                <h3>Chocolate Cake</h3>
-                <p>Rich and creamy chocolate cake.</p>
-                <p class="price">₹450</p>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500"
-                     alt="Fresh cream pastry">
-                <h3>Fresh Pastry</h3>
-                <p>Soft, sweet and delicious pastry.</p>
-                <p class="price">₹80</p>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500"
-                     alt="Freshly baked cookies">
-                <h3>Cookies</h3>
-                <p>Crunchy cookies with chocolate chips.</p>
-                <p class="price">₹120</p>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500"
-                     alt="Colorful cupcakes">
-                <h3>Cupcakes</h3>
-                <p>Beautiful cupcakes for every occasion.</p>
-                <p class="price">₹60</p>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Custom Cakes -->
-    <section id="custom">
-        <h2>Custom Cake Designs</h2>
-        <p>Make your birthdays and celebrations special!</p>
-
-        <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=500"
-                 alt="Decorated celebration cake">
-            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500"
-                 alt="Birthday cake design">
-            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500"
-                 alt="Special occasion cake">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500" alt="Chocolate cake">
+            <h3>Chocolate Cake</h3>
+            <p>Rich and creamy chocolate cake.</p>
+            <p class="price">₹450</p>
         </div>
 
-        <p>Starting from ₹800 | Choose your flavor, color and design.</p>
-    </section>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1488477181946-6428a0291777?w=500" alt="Fresh pastry">
+            <h3>Fresh Pastry</h3>
+            <p>Soft, sweet and delicious pastry.</p>
+            <p class="price">₹80</p>
+        </div>
 
-    <!-- Seasonal Offers -->
-    <section id="offers" class="offers">
-        <h2>🎉 Seasonal Special Offers 🎉</h2>
-        <p>🍓 Strawberry Cakes – 10% OFF</p>
-        <p>🍪 Buy 2 Cookie Packs and Get 1 Free</p>
-        <p>🎂 Birthday Cakes – 15% OFF</p>
-        <small>*Sample offers for this student project.</small>
-    </section>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=500" alt="Cookies">
+            <h3>Cookies</h3>
+            <p>Crunchy chocolate chip cookies.</p>
+            <p class="price">₹120</p>
+        </div>
 
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <p>📍 Address: Main Road, Vijayawada, Andhra Pradesh</p>
-        <p>📞 Phone: +91 98765 43210</p>
-        <p>✉️ Email: sweettreats@example.com</p>
-        <p>🕒 Opening Hours: 9:00 AM – 9:00 PM</p>
-    </section>
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?w=500" alt="Cupcakes">
+            <h3>Cupcakes</h3>
+            <p>Beautiful cupcakes for every occasion.</p>
+            <p class="price">₹60</p>
+        </div>
 
-    <!-- Footer -->
-    <footer>
-        <p>© 2026 Sweet Treats Bakery | Made with ❤️</p>
-    </footer>
+    </div>
+</section>
+
+<!-- Custom Cakes Page -->
+<section id="custom" class="page">
+    <h2>🎂 Custom Cake Designs</h2>
+    <p>Make your birthdays and celebrations special!</p>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1535254973040-607b474cb50d?w=500" alt="Celebration cake">
+        <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=500" alt="Birthday cake">
+        <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500" alt="Special occasion cake">
+    </div>
+
+    <p>Starting from ₹800</p>
+    <p>Choose your favorite flavor, color and design!</p>
+</section>
+
+<!-- Offers Page -->
+<section id="offers" class="page offers">
+    <h2>🎉 Seasonal Special Offers 🎉</h2>
+    <p>🍓 Strawberry Cakes – 10% OFF</p>
+    <p>🍪 Buy 2 Cookie Packs and Get 1 Free</p>
+    <p>🎂 Birthday Cakes – 15% OFF</p>
+    <small>*Sample offers for this student project.</small>
+</section>
+
+<!-- Contact Page -->
+<section id="contact" class="page">
+    <h2>Contact Us</h2>
+    <p>📍 Address: Main Road, Vijayawada, Andhra Pradesh</p>
+    <p>📞 Phone: +91 98765 43210</p>
+    <p>✉️ Email: sweettreats@example.com</p>
+    <p>🕒 Opening Hours: 9:00 AM – 9:00 PM</p>
+</section>
+
+<footer>
+    <p>© 2026 Sweet Treats Bakery | Made with ❤️</p>
+</footer>
+
+<script>
+    function showPage(pageId) {
+        // Hide all pages
+        const pages = document.querySelectorAll(".page");
+
+        pages.forEach(function(page) {
+            page.classList.remove("active");
+        });
+
+        // Show only the selected page
+        document.getElementById(pageId).classList.add("active");
+
+        // Start the selected page from the top
+        window.scrollTo(0, 0);
+    }
+</script>
 
 </body>
 </html>
+```
